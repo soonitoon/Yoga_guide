@@ -1,5 +1,6 @@
 let video;
 let poseNet;
+let pose;
 
 function setup() {
   createCanvas(640, 480);
@@ -11,6 +12,9 @@ function setup() {
 
 function gotPoses(poses) {
   console.log(poses);
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+  }
 }
 
 function modelLoaded() {
