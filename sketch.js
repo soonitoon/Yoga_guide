@@ -23,4 +23,9 @@ function modelLoaded() {
 
 function draw() {
   image(video, 0, 0);
+
+  if (pose) {
+    fill(255, 0, 0);
+    ellipse(pose.nose.x, pose.nose.y, 64);
+  }
 }
