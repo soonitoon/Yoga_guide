@@ -30,15 +30,15 @@ function draw() {
     for (let i = 0; i < pose.keypoints.length; i++) {
       let x = pose.keypoints[i].position.x;
       let y = pose.keypoints[i].position.y;
-      fill(0, 255, 0);
-      ellipse(x, y, 16, 16);
+      fill(51, 255, 255);
+      ellipse(x, y, 10, 10);
     }
 
     for (let i = 0; i < skeleton.length; i++) {
       let a = skeleton[i][0];
       let b = skeleton[i][1];
       strokeWeight(2);
-      stroke(255);
+      stroke(51, 255, 255);
       line(a.position.x, a.position.y, b.position.x, b.position.y);
     }
   }
