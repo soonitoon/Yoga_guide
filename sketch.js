@@ -9,16 +9,20 @@ let state = "waiting...";
 let targetLabel;
 
 function keyPressed() {
-  targetLabel = key;
-  console.log(targetLabel);
-  setTimeout(function () {
-    console.log("collecting");
-    state = "collecting";
+  if (key === "s") {
+    brain.saveData();
+  } else {
+    targetLabel = key;
+    console.log(targetLabel);
     setTimeout(function () {
-      console.log("Not collecting");
-      state = "waiting";
-    }, 1000);
-  }, 10000);
+      console.log("collecting");
+      state = "collecting";
+      setTimeout(function () {
+        console.log("Not collecting");
+        state = "waiting";
+      }, 10000);
+    }, 10000);
+  }
 }
 
 function setup() {
