@@ -5,6 +5,14 @@ let skeleton;
 
 let brain;
 
+let state = "waiting...";
+
+function keyPressed() {
+  setTimeout(function () {
+    state = "collecting";
+  }, 10000);
+}
+
 function setup() {
   createCanvas(640, 480);
   video = createCapture(VIDEO);
