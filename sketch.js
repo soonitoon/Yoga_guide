@@ -39,6 +39,7 @@ function setup() {
     debug: true,
   };
   brain = ml5.neuralNetwork(options);
+  brain.loadData("collected.json");
 }
 
 function gotPoses(poses) {
