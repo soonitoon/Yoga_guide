@@ -14,6 +14,10 @@ function keyPressed() {
   setTimeout(function () {
     console.log("collecting");
     state = "collecting";
+    setTimeout(function () {
+      console.log("Not collecting");
+      state = "waiting";
+    }, 1000);
   }, 10000);
 }
 
