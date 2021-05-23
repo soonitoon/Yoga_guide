@@ -3,12 +3,22 @@ let poseNet;
 let pose;
 let skeleton;
 
+let brain;
+
 function setup() {
   createCanvas(640, 480);
   video = createCapture(VIDEO);
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", gotPoses);
+
+  let options = {
+    inputs: 34,
+    outputs: 4,
+    task: "classification",
+    debug: true,
+  };
+  brain = ml5.neuralNetwork(options);
 }
 
 function gotPoses(poses) {
