@@ -39,7 +39,17 @@ function setup() {
     debug: true,
   };
   brain = ml5.neuralNetwork(options);
-  brain.loadData("collected.json", dataReady);
+  const modelInfo = {
+    model: "model/model.json",
+    metadata: "model/model_meta.json",
+    weights: "model/model.weights.bin",
+  };
+  brain.load(modelInfo, brainLoaded);
+  // brain.loadData("collected.json", dataReady);
+}
+
+function brainLoaded() {
+  console.log("pose classification is ready!");
 }
 
 function dataReady() {
