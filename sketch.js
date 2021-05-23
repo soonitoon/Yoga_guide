@@ -6,9 +6,13 @@ let skeleton;
 let brain;
 
 let state = "waiting...";
+let targetLabel;
 
 function keyPressed() {
+  targetLabel = key;
+  console.log(targetLabel);
   setTimeout(function () {
+    console.log("collecting");
     state = "collecting";
   }, 10000);
 }
