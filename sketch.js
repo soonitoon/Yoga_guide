@@ -50,6 +50,28 @@ function setup() {
 
 function brainLoaded() {
   console.log("pose classification is ready!");
+  classifyPose();
+}
+
+function classifyPose() {
+  if (pose) {
+    let inputs = [];
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      inputs.push(x);
+      inputs.push(y);
+    }
+    brain.classify(inputs, gotResult);
+  } else {
+    setTimeout(classifyPose, 100);
+  }
+}
+
+function gotResult(error, results) {
+  console.log(results);
+  console.log(results[0].label);
+  classifyPose();
 }
 
 function dataReady() {
