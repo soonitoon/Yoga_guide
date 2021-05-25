@@ -30,11 +30,11 @@ async function keyPressed() {
     let b = bSlider.value();
     targetColor = [r, g, b];
 
-    await delay(3000);
+    await delay(5000);
     console.log("collecting");
     state = "collecting";
 
-    await delay(3000);
+    await delay(5000);
     console.log("not collecting");
     state = "waiting";
   }
