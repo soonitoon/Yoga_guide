@@ -14,9 +14,11 @@ let rSlider, gSlider, bSlider;
 async function keyPressed() {
   if (key === "s") {
     brain.saveData();
-  } else {
-    targetLabel = key;
-    console.log(targetLabel);
+  } else if (key === "d") {
+    let r = rSlider.value();
+    let g = gSlider.value();
+    let b = bSlider.value();
+    let targetColor = [r, g, b];
 
     await delay(10000);
     console.log("collecting");
@@ -106,8 +108,7 @@ function gotPoses(poses) {
         inputs.push(x);
         inputs.push(y);
       }
-      let target = [targetLabel];
-      brain.addData(inputs, target);
+      brain.addData(inputs, targetColor);
     }
   }
 }
