@@ -7,7 +7,7 @@ let brain;
 let poseLabel = "ready";
 
 let state = "waiting...";
-let targetLabel;
+let targetColor;
 
 let rSlider, gSlider, bSlider;
 
@@ -18,7 +18,7 @@ async function keyPressed() {
     let r = rSlider.value();
     let g = gSlider.value();
     let b = bSlider.value();
-    let targetColor = [r, g, b];
+    targetColor = [r, g, b];
 
     await delay(3000);
     console.log("collecting");
