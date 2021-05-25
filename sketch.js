@@ -35,8 +35,8 @@ function setup() {
 
   let options = {
     inputs: 34,
-    outputs: 4,
-    task: "classification",
+    outputs: 3,
+    task: "regression",
     debug: true,
   };
   brain = ml5.neuralNetwork(options);
