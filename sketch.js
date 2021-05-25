@@ -65,15 +65,15 @@ function setup() {
     weights: "model/model.weights.bin",
   };
   brain.load(modelInfo, brainLoaded);
-  brain.loadData("color_poses.json", dataReady);
+  // brain.loadData("color_poses.json", dataReady);
 }
 
 function brainLoaded() {
-  console.log("pose classification is ready!");
-  classifyPose();
+  console.log("pose regression is ready!");
+  predictColor();
 }
 
-function classifyPose() {
+function predictColor() {
   if (pose) {
     let inputs = [];
     for (let i = 0; i < pose.keypoints.length; i++) {
@@ -82,9 +82,9 @@ function classifyPose() {
       inputs.push(x);
       inputs.push(y);
     }
-    brain.classify(inputs, gotResult);
+    brain.predict(inputs, gotResult);
   } else {
-    setTimeout(classifyPose, 100);
+    setTimeout(predictColor, 100);
   }
 }
 
