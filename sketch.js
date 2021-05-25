@@ -11,6 +11,16 @@ let targetColor;
 
 let rSlider, gSlider, bSlider;
 
+function delay(time) {
+  return new Promise((resolve, reject) => {
+    if (isNaN(time)) {
+      reject(new Error("delay requires a valid number."));
+    } else {
+      setTimeout(resolve, time);
+    }
+  });
+}
+
 async function keyPressed() {
   if (key === "s") {
     brain.saveData();
