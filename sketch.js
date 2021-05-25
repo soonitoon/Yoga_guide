@@ -9,6 +9,8 @@ let poseLabel = "ready";
 let state = "waiting...";
 let targetLabel;
 
+let rSlider, gSlider, bSlider;
+
 function keyPressed() {
   // if (key === "s") {
   //   brain.saveData();
@@ -28,6 +30,11 @@ function keyPressed() {
 
 function setup() {
   createCanvas(640, 480);
+
+  rSlider = createSlider(0, 255, 255);
+  gSlider = createSlider(0, 255, 0);
+  bSlider = createSlider(0, 255, 0);
+
   video = createCapture(VIDEO);
   video.hide();
   poseNet = ml5.poseNet(video, modelLoaded);
