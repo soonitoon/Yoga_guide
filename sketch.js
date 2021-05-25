@@ -11,21 +11,21 @@ let targetLabel;
 
 let rSlider, gSlider, bSlider;
 
-function keyPressed() {
-  // if (key === "s") {
-  //   brain.saveData();
-  // } else {
-  //   targetLabel = key;
-  //   console.log(targetLabel);
-  //   setTimeout(function () {
-  //     console.log("collecting");
-  //     state = "collecting";
-  //     setTimeout(function () {
-  //       console.log("Not collecting");
-  //       state = "waiting";
-  //     }, 10000);
-  //   }, 10000);
-  // }
+async function keyPressed() {
+  if (key === "s") {
+    brain.saveData();
+  } else {
+    targetLabel = key;
+    console.log(targetLabel);
+
+    await delay(10000);
+    console.log("collecting");
+    state = "collecting";
+
+    await delay(10000);
+    console.log("not collecting");
+    state = "waiting";
+  }
 }
 
 function setup() {
