@@ -4,7 +4,7 @@ let pose;
 let skeleton;
 
 let brain;
-let poseLabel = "ready";
+// let poseLabel = "ready";
 
 let state = "waiting...";
 let targetColor;
@@ -141,9 +141,9 @@ function draw() {
   }
   pop();
 
-  fill(255, 0, 255);
-  noStroke();
-  textSize(256);
-  textAlign(CENTER, CENTER);
-  text(poseLabel, width / 2, height / 2);
+  // fill(255, 0, 255);
+  // noStroke();
+  // textSize(256);
+  // textAlign(CENTER, CENTER);
+  // text(poseLabel, width / 2, height / 2);
 }
