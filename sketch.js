@@ -65,7 +65,7 @@ function setup() {
     weights: "model/model.weights.bin",
   };
   brain.load(modelInfo, brainLoaded);
-  // brain.loadData("collected.json", dataReady);
+  brain.loadData("color_poses.json", dataReady);
 }
 
 function brainLoaded() {
