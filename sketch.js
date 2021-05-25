@@ -4,25 +4,26 @@ let pose;
 let skeleton;
 
 let brain;
+let poseLabel = "ready";
 
 let state = "waiting...";
 let targetLabel;
 
 function keyPressed() {
-  if (key === "s") {
-    brain.saveData();
-  } else {
-    targetLabel = key;
-    console.log(targetLabel);
-    setTimeout(function () {
-      console.log("collecting");
-      state = "collecting";
-      setTimeout(function () {
-        console.log("Not collecting");
-        state = "waiting";
-      }, 10000);
-    }, 10000);
-  }
+  // if (key === "s") {
+  //   brain.saveData();
+  // } else {
+  //   targetLabel = key;
+  //   console.log(targetLabel);
+  //   setTimeout(function () {
+  //     console.log("collecting");
+  //     state = "collecting";
+  //     setTimeout(function () {
+  //       console.log("Not collecting");
+  //       state = "waiting";
+  //     }, 10000);
+  //   }, 10000);
+  // }
 }
 
 function setup() {
@@ -69,8 +70,8 @@ function classifyPose() {
 }
 
 function gotResult(error, results) {
-  console.log(results);
-  console.log(results[0].label);
+  poseLabel = results[0].label;
+  console.log(results[0].confidence);
   classifyPose();
 }
 
@@ -107,6 +108,7 @@ function modelLoaded() {
 }
 
 function draw() {
+  push();
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, video.width, video.height);
@@ -127,4 +129,11 @@ function draw() {
       line(a.position.x, a.position.y, b.position.x, b.position.y);
     }
   }
+  pop();
+
+  fill(255, 0, 255);
+  noStroke();
+  textSize(256);
+  textAlign(CENTER, CENTER);
+  text(poseLabel, width / 2, height / 2);
 }
