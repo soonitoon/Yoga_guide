@@ -88,6 +88,9 @@ function predictColor() {
 }
 
 function gotResult(error, results) {
+  if (error) {
+    console.log(error);
+  }
   console.log(results);
   let r = results[0].value;
   let g = results[1].value;
