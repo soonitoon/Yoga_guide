@@ -95,9 +95,18 @@ function gotResult(error, results) {
   let r = results[0].value;
   let g = results[1].value;
   let b = results[2].value;
-  rSlider.value(r);
-  gSlider.value(g);
-  bSlider.value(b);
+  let preR = rSlider.value();
+  let preG = gSlider.value();
+  let preB = bSlider.value();
+  if (Math.abs(r - preR) > 200) {
+    rSlider.value(r);
+  }
+  if (Math.abs(g - preG) > 200) {
+    gSlider.value(g);
+  }
+  if (Math.abs(b - preB) > 200) {
+    bSlider.value(b);
+  }
   predictColor();
 }
 
