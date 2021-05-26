@@ -4,9 +4,8 @@ let pose;
 let skeleton;
 
 let brain;
-// let poseLabel = "ready";
 
-let state = "waiting...";
+// let state = "waiting";
 let targetColor;
 
 let rSlider, gSlider, bSlider;
@@ -21,24 +20,24 @@ function delay(time) {
   });
 }
 
-async function keyPressed() {
-  if (key === "s") {
-    brain.saveData();
-  } else if (key === "d") {
-    let r = rSlider.value();
-    let g = gSlider.value();
-    let b = bSlider.value();
-    targetColor = [r, g, b];
+// async function keyPressed() {
+//   if (key === "s") {
+//     brain.saveData();
+//   } else if (key === "d") {
+//     let r = rSlider.value();
+//     let g = gSlider.value();
+//     let b = bSlider.value();
+//     targetColor = [r, g, b];
 
-    await delay(5000);
-    console.log("collecting");
-    state = "collecting";
+//     await delay(5000);
+//     console.log("collecting");
+//     state = "collecting";
 
-    await delay(5000);
-    console.log("not collecting");
-    state = "waiting";
-  }
-}
+//     await delay(5000);
+//     console.log("not collecting");
+//     state = "waiting";
+//   }
+// }
 
 function setup() {
   createCanvas(640, 480);
@@ -69,7 +68,7 @@ function setup() {
 }
 
 function brainLoaded() {
-  console.log("pose regression is ready!");
+  console.log("pose prediction is ready!");
   predictColor();
 }
 
@@ -89,37 +88,34 @@ function predictColor() {
 }
 
 function gotResult(error, results) {
-  if (results[0].confidence > 0.75) {
-    poseLabel = results[0].label;
-  }
-  //console.log(results[0].confidence);
-  classifyPose();
+  console.log(results);
+  predictColor();
 }
 
-function dataReady() {
-  brain.normalizeData();
-  brain.train({ epochs: 50 }, finished);
-}
+// function dataReady() {
+//   brain.normalizeData();
+//   brain.train({ epochs: 50 }, finished);
+// }
 
-function finished() {
-  console.log("model trained");
-  brain.save();
-}
+// function finished() {
+//   console.log("model trained");
+//   brain.save();
+// }
 
 function gotPoses(poses) {
   if (poses.length > 0) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
-    if (state === "collecting") {
-      let inputs = [];
-      for (let i = 0; i < pose.keypoints.length; i++) {
-        let x = pose.keypoints[i].position.x;
-        let y = pose.keypoints[i].position.y;
-        inputs.push(x);
-        inputs.push(y);
-      }
-      brain.addData(inputs, targetColor);
-    }
+    // if (state === "collecting") {
+    //   let inputs = [];
+    //   for (let i = 0; i < pose.keypoints.length; i++) {
+    //     let x = pose.keypoints[i].position.x;
+    //     let y = pose.keypoints[i].position.y;
+    //     inputs.push(x);
+    //     inputs.push(y);
+    //   }
+    //   brain.addData(inputs, targetColor);
+    // }
   }
 }
 
