@@ -89,6 +89,12 @@ function predictColor() {
 
 function gotResult(error, results) {
   console.log(results);
+  let r = results[0].value;
+  let g = results[1].value;
+  let b = results[2].value;
+  rSlider.value(r);
+  gSlider.value(g);
+  bSlider.value(b);
   predictColor();
 }
 
