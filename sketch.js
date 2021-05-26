@@ -165,6 +165,11 @@ function draw() {
   }
   pop();
 
+  let r = rSlider.value();
+  let g = gSlider.value();
+  let b = bSlider.value();
+  background(r, g, b, 100);
+
   // fill(255, 0, 255);
   // noStroke();
   // textSize(256);
