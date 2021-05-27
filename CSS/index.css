@@ -14,7 +14,7 @@ body {
 
 .progress_bar {
   background-color: skyblue;
-  width: 70vw;
+  width: 20%;
   height: 4vh;
   border-radius: 15px;
 }
