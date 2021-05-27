@@ -99,25 +99,41 @@ function gotPoses(poses) {
 
 function draw() {
   push();
+  drawMainCanvas();
+  if (pose) {
+    drawKeypoints();
+    drawSkeleton();
+  }
+  pop();
+  paintBackgoundColor();
+}
+
+function drawMainCanvas() {
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, video.width, video.height);
-  if (pose) {
-    for (let i = 0; i < pose.keypoints.length; i++) {
-      let x = pose.keypoints[i].position.x;
-      let y = pose.keypoints[i].position.y;
-      fill(51, 255, 255);
-      ellipse(x, y, 10, 10);
-    }
-    for (let i = 0; i < skeleton.length; i++) {
-      let a = skeleton[i][0];
-      let b = skeleton[i][1];
-      strokeWeight(2);
-      stroke(51, 255, 255);
-      line(a.position.x, a.position.y, b.position.x, b.position.y);
-    }
+}
+
+function drawKeypoints() {
+  for (let i = 0; i < pose.keypoints.length; i++) {
+    let x = pose.keypoints[i].position.x;
+    let y = pose.keypoints[i].position.y;
+    fill(51, 255, 255);
+    ellipse(x, y, 10, 10);
   }
-  pop();
+}
+
+function drawSkeleton() {
+  for (let i = 0; i < skeleton.length; i++) {
+    let a = skeleton[i][0];
+    let b = skeleton[i][1];
+    strokeWeight(2);
+    stroke(51, 255, 255);
+    line(a.position.x, a.position.y, b.position.x, b.position.y);
+  }
+}
+
+function paintBackgoundColor() {
   let r = rSlider.value();
   let g = gSlider.value();
   let b = bSlider.value();
