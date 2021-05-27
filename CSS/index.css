@@ -12,6 +12,10 @@ body {
   height: 30vh;
 }
 
+.prograss_bar_container {
+  width: 80vw;
+}
+
 .progress_bar {
   background-color: skyblue;
   width: 20%;
