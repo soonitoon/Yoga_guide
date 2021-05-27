@@ -2,55 +2,21 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-
 let brain;
-
-// let state = "waiting";
 let targetColor;
-
 let rSlider, gSlider, bSlider;
 
-function delay(time) {
-  return new Promise((resolve, reject) => {
-    if (isNaN(time)) {
-      reject(new Error("delay requires a valid number."));
-    } else {
-      setTimeout(resolve, time);
-    }
-  });
+function setup() {
+  setCanvas();
+  set_ml5();
+  setModel();
 }
 
-// async function keyPressed() {
-//   if (key === "s") {
-//     brain.saveData();
-//   } else if (key === "d") {
-//     let r = rSlider.value();
-//     let g = gSlider.value();
-//     let b = bSlider.value();
-//     targetColor = [r, g, b];
-
-//     await delay(5000);
-//     console.log("collecting");
-//     state = "collecting";
-
-//     await delay(5000);
-//     console.log("not collecting");
-//     state = "waiting";
-//   }
-// }
-
-function setup() {
-  createCanvas(640, 480);
-
-  rSlider = createSlider(0, 255, 255);
-  gSlider = createSlider(0, 255, 0);
-  bSlider = createSlider(0, 255, 0);
-
-  video = createCapture(VIDEO);
-  video.hide();
-  poseNet = ml5.poseNet(video, modelLoaded);
+function set_ml5() {
+  poseNet = ml5.poseNet(video, () => {
+    console.log("poseNet is ready");
+  });
   poseNet.on("pose", gotPoses);
-
   let options = {
     inputs: 34,
     outputs: 3,
@@ -58,13 +24,24 @@ function setup() {
     debug: true,
   };
   brain = ml5.neuralNetwork(options);
+}
+
+function setCanvas() {
+  createCanvas(640, 480);
+  rSlider = createSlider(0, 255, 255);
+  gSlider = createSlider(0, 255, 0);
+  bSlider = createSlider(0, 255, 0);
+  video = createCapture(VIDEO);
+  video.hide();
+}
+
+function setModel() {
   const modelInfo = {
-    model: "model/model.json",
+    model: "model/model.json", // Your traind model data
     metadata: "model/model_meta.json",
     weights: "model/model.weights.bin",
   };
   brain.load(modelInfo, brainLoaded);
-  // brain.loadData("color_poses.json", dataReady);
 }
 
 function brainLoaded() {
@@ -91,10 +68,14 @@ function gotResult(error, results) {
   if (error) {
     console.log(error);
   }
-  console.log(results);
   let r = results[0].value;
   let g = results[1].value;
   let b = results[2].value;
+  moveSliders(r, g, b);
+  predictColor();
+}
+
+function moveSliders(r, g, b) {
   let preR = rSlider.value();
   let preG = gSlider.value();
   let preB = bSlider.value();
@@ -107,38 +88,13 @@ function gotResult(error, results) {
   if (Math.abs(b - preB) > 200) {
     bSlider.value(b);
   }
-  predictColor();
 }
-
-// function dataReady() {
-//   brain.normalizeData();
-//   brain.train({ epochs: 50 }, finished);
-// }
-
-// function finished() {
-//   console.log("model trained");
-//   brain.save();
-// }
 
 function gotPoses(poses) {
   if (poses.length > 0) {
     pose = poses[0].pose;
     skeleton = poses[0].skeleton;
-    // if (state === "collecting") {
-    //   let inputs = [];
-    //   for (let i = 0; i < pose.keypoints.length; i++) {
-    //     let x = pose.keypoints[i].position.x;
-    //     let y = pose.keypoints[i].position.y;
-    //     inputs.push(x);
-    //     inputs.push(y);
-    //   }
-    //   brain.addData(inputs, targetColor);
-    // }
   }
-}
-
-function modelLoaded() {
-  console.log("poseNet ready");
 }
 
 function draw() {
@@ -146,7 +102,6 @@ function draw() {
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, video.width, video.height);
-
   if (pose) {
     for (let i = 0; i < pose.keypoints.length; i++) {
       let x = pose.keypoints[i].position.x;
@@ -154,7 +109,6 @@ function draw() {
       fill(51, 255, 255);
       ellipse(x, y, 10, 10);
     }
-
     for (let i = 0; i < skeleton.length; i++) {
       let a = skeleton[i][0];
       let b = skeleton[i][1];
@@ -164,15 +118,8 @@ function draw() {
     }
   }
   pop();
-
   let r = rSlider.value();
   let g = gSlider.value();
   let b = bSlider.value();
   background(r, g, b, 100);
-
-  // fill(255, 0, 255);
-  // noStroke();
-  // textSize(256);
-  // textAlign(CENTER, CENTER);
-  // text(poseLabel, width / 2, height / 2);
 }
