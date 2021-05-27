@@ -11,3 +11,10 @@ body {
   width: 30vw;
   height: 30vh;
 }
+
+.progress_bar {
+  background-color: skyblue;
+  width: 70vw;
+  height: 4vh;
+  border-radius: 15px;
+}
