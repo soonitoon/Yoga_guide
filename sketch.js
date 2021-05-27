@@ -106,6 +106,7 @@ function draw() {
   }
   pop();
   paintBackgoundColor();
+  drawMessage();
 }
 
 function drawMainCanvas() {
@@ -138,4 +139,21 @@ function paintBackgoundColor() {
   let g = gSlider.value();
   let b = bSlider.value();
   background(r, g, b, 100);
+}
+
+function drawMessage() {
+  let r = rSlider.value();
+  let g = gSlider.value();
+  let b = bSlider.value();
+  let message = "준비";
+  if (b > g && b > r) {
+    message = "조금만 더";
+  } else if (g > r && g > b) {
+    message = "잘했어요!";
+  }
+  fill(255, 0, 255);
+  noStroke();
+  textSize(100);
+  textAlign(CENTER, CENTER);
+  text(message, width / 2, height / 2);
 }
