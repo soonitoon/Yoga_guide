@@ -37,9 +37,9 @@ function setCanvas() {
 
 function setModel() {
   const modelInfo = {
-    model: "../model/model.json", // Your traind model data
-    metadata: "../model/model_meta.json",
-    weights: "../model/model.weights.bin",
+    model: "../model/warrior_two/model.json", // Your traind model data
+    metadata: "../model/warrior_two/model_meta.json",
+    weights: "../model/warrior_two/model.weights.bin",
   };
   brain.load(modelInfo, brainLoaded);
 }
