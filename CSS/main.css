@@ -39,3 +39,30 @@ body {
   margin-top: 3px;
   color: darkgrey;
 }
+
+.horizontal_center_container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.button {
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.pose_button {
+  background-image: linear-gradient(#8db9ea, #cac6eb);
+  color: white;
+}
+
+.yoga_button {
+  margin-left: 20px;
+  border: 1px solid #8db9ea;
+  color: #8db9ea;
+}
