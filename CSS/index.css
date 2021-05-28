@@ -5,6 +5,7 @@ body {
   flex-flow: column;
   align-items: center;
   justify-content: center;
+  background-image: linear-gradient(#8db9ea, #cac6eb);
 }
 
 .loading_image {
