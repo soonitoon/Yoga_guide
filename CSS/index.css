@@ -12,16 +12,3 @@ body {
   width: 30vw;
   height: 30vh;
 }
-
-.prograss_bar_container {
-  width: 80vw;
-}
-
-.progress_bar {
-  background-color: skyblue;
-  width: 20%;
-  height: 4vh;
-  border-radius: 15px;
-  text-align: center;
-  line-height: 4vh;
-}
