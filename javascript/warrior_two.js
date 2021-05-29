@@ -28,7 +28,7 @@ function set_ml5() {
 
 function setCanvas() {
   createCanvas(window.screen.width, window.screen.height);
-  rSlider = createSlider(0, 255, 255);
+  rSlider = createSlider(0, 255, 0);
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
   video = createCapture(VIDEO);
@@ -142,7 +142,7 @@ function paintBackgoundColor() {
   let r = rSlider.value();
   let g = gSlider.value();
   let b = bSlider.value();
-  background(r, g, b, 100);
+  background(r, g, b, 60);
 }
 
 function drawMessage() {
@@ -155,7 +155,7 @@ function drawMessage() {
   } else if (g > r && g > b) {
     message = "잘했어요!";
   }
-  fill(255, 0, 255);
+  fill(255, 255, 255);
   noStroke();
   textSize(70);
   textAlign(CENTER, CENTER);
