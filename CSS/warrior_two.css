@@ -20,9 +20,9 @@ body {
 }
 
 .white_plate {
-  height: 170px;
+  height: 120px;
   width: 350px;
-  min-height: 170px;
+  min-height: 120px;
   margin: 20px auto;
   background-color: white;
   border-radius: 30px;
