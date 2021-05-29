@@ -8,7 +8,7 @@ body {
 }
 
 .main_title {
-  margin: 30px 0 0 30px;
+  margin: 70px 0 0 30px;
   font-weight: bold;
   font-size: 25px;
   line-height: 35px;
@@ -50,4 +50,11 @@ body {
   font-weight: normal;
   line-height: 20px;
   margin: 10px 20px 0 0;
+}
+
+.back_button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 25px;
 }
