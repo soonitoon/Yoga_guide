@@ -14,7 +14,16 @@ body {
 }
 
 .p5Canvas {
-  border-radius: 60px;
+  border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
   border: 5px solid white;
+}
+
+.white_plate {
+  height: 150px;
+  width: 350px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
