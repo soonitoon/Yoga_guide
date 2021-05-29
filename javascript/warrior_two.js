@@ -32,6 +32,7 @@ function setCanvas() {
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
   video = createCapture(VIDEO);
+  video.size(360, 480);
   video.hide();
   rSlider.hide();
   gSlider.hide();
