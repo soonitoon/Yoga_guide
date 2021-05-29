@@ -22,6 +22,7 @@ body {
 .white_plate {
   height: 170px;
   width: 350px;
+  min-height: 170px;
   margin: 20px auto;
   background-color: white;
   border-radius: 30px;
