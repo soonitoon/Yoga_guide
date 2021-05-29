@@ -5,6 +5,8 @@ body {
   width: 100vw;
   font-family: "Noto Sans KR", sans-serif;
   background-image: linear-gradient(#8db9ea, #cac6eb);
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .main_title {
