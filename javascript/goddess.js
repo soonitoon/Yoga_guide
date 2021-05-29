@@ -27,12 +27,15 @@ function set_ml5() {
 }
 
 function setCanvas() {
-  createCanvas(640, 480);
-  rSlider = createSlider(0, 255, 255);
+  createCanvas(350, 480);
+  rSlider = createSlider(0, 255, 0);
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
   video = createCapture(VIDEO);
   video.hide();
+  rSlider.hide();
+  gSlider.hide();
+  bSlider.hide();
 }
 
 function setModel() {
@@ -138,7 +141,7 @@ function paintBackgoundColor() {
   let r = rSlider.value();
   let g = gSlider.value();
   let b = bSlider.value();
-  background(r, g, b, 100);
+  background(r, g, b, 60);
 }
 
 function drawMessage() {
@@ -151,9 +154,9 @@ function drawMessage() {
   } else if (g > r && g > b) {
     message = "잘했어요!";
   }
-  fill(255, 0, 255);
+  fill(255, 255, 255);
   noStroke();
-  textSize(100);
+  textSize(70);
   textAlign(CENTER, CENTER);
   text(message, width / 2, height / 2);
 }
