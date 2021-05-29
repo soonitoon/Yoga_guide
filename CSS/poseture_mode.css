@@ -5,6 +5,9 @@ body {
   width: 100vw;
   font-family: "Noto Sans KR", sans-serif;
   background-image: linear-gradient(#8db9ea, #cac6eb);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .white_plate {
