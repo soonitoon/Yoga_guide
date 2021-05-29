@@ -156,7 +156,7 @@ function drawMessage() {
   }
   fill(255, 0, 255);
   noStroke();
-  textSize(100);
+  textSize(70);
   textAlign(CENTER, CENTER);
   text(message, width / 2, height / 2);
 }
