@@ -27,12 +27,12 @@ function set_ml5() {
 }
 
 function setCanvas() {
-  createCanvas(360, 480);
+  createCanvas(window.screen.width, window.screen.height);
   rSlider = createSlider(0, 255, 255);
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
   video = createCapture(VIDEO);
-  video.size(360, 480);
+  video.size(window.screen.width, window.screen.height);
   video.hide();
   rSlider.hide();
   gSlider.hide();
