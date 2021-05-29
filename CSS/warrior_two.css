@@ -7,4 +7,14 @@ body {
   background-image: linear-gradient(#8db9ea, #cac6eb);
   overflow-y: hidden;
   overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.p5Canvas {
+  border-radius: 60px;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border: 5px solid white;
 }
