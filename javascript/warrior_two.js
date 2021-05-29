@@ -27,7 +27,7 @@ function set_ml5() {
 }
 
 function setCanvas() {
-  createCanvas(640, 480);
+  createCanvas(360, 600);
   rSlider = createSlider(0, 255, 255);
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
