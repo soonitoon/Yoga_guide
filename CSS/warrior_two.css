@@ -20,10 +20,55 @@ body {
 }
 
 .white_plate {
-  height: 150px;
+  height: 170px;
   width: 350px;
   margin: 20px auto;
   background-color: white;
   border-radius: 30px;
   box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  display: flex;
+  align-items: center;
+}
+
+.back_button {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.yoga_title {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.yoga_sub {
+  font-weight: normal;
+  line-height: 20px;
+  margin: 10px 20px 0 0;
+}
+
+.discription_container {
+  margin-left: 20px;
+}
+
+.color_container {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.color_circle {
+  display: inline-block;
+  background-color: #e34133;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+}
+
+.blue {
+  background-color: #4081ec;
+}
+
+.green {
+  background-color: #32a350;
 }
