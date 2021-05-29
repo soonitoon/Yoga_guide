@@ -77,10 +77,24 @@ body {
   color: white;
 }
 
+.pose_button:active,
+.pose_button:hover {
+  background-image: none;
+  color: #8db9ea;
+  border: 1px solid #8db9ea;
+}
+
 .yoga_button {
   margin-left: 20px;
   border: 1px solid #8db9ea;
   color: #8db9ea;
+}
+
+.yoga_button:active,
+.yoga_button:hover {
+  background-image: linear-gradient(#8db9ea, #cac6eb);
+  color: white;
+  border: none;
 }
 
 .project_title {
