@@ -31,14 +31,7 @@ function setCanvas() {
   rSlider = createSlider(0, 255, 0);
   gSlider = createSlider(0, 255, 0);
   bSlider = createSlider(0, 255, 0);
-  const options = {
-    video: {
-      facingMode: {
-        exact: "user",
-      },
-    },
-  };
-  video = createCapture(options);
+  video = createCapture();
   video.hide();
   rSlider.hide();
   gSlider.hide();
