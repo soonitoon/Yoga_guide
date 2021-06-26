@@ -32,7 +32,7 @@ AI yoga guide web application
 #### 요가모드
 
 - 원하는 요가 자세를 코칭받을 수 있습니다.
-- 현재까지 지원하는 요가 자세는 **"Warrior two"**와 **"Goddess"** 두 개 입니다.
+- 현재까지 지원하는 요가 자세는 **"Warrior two"** 와 **"Goddess"** 두 개 입니다.
 
 #### 요가자세별 코칭
 
