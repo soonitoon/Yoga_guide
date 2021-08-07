@@ -1,5 +1,6 @@
 # Yoga_guide🧘‍♀️
-AI yoga guide web application
+
+AI yoga guide web application!
 
 ## 프로젝트 소개🎬
 
